@@ -4,7 +4,7 @@ import base64
 
 def get_user_and_pass():
     global username, password
-    pw = hashlib.md5(password).digest()
+    pw = hashlib.md5(bytes(password, encoding='utf-8')).digest()
     pw = base64.b16encode()
     pw = str(pw)
     return username, pw
