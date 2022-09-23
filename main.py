@@ -18,9 +18,9 @@ st.text("")
 password = st.text_input("Password: ", type="password")
 st.text("")
 
-col1, col2, col3, col4 = st.columns(5)
-login_bt = col2.button("<Login>")
-signin_bt = col4.button("<Sign in>")
+cols = st.columns(5)
+login_bt = cols[1].button("<Login>")
+signin_bt = cols[3].button("<Sign in>")
 
 if login_bt:
     st.text("hello!")
