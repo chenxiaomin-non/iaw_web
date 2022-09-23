@@ -1,10 +1,12 @@
 import streamlit as st
 import hashlib
+import base64
 
 def get_user_and_pass():
     global username, password
-    pw = hashlib.md5(password)
-
+    pw = hashlib.md5(password).digest()
+    pw = base64.b16encode()
+    pw = str(pw)
     return username, pw
 
 
@@ -16,9 +18,9 @@ st.text("")
 password = st.text_input("Password: ", type="password")
 st.text("")
 
-col1, col2 = st.columns(2)
-login_bt = col1.button("<Login>")
-signin_bt = col2.button("<Sign in>")
+col1, col2, col3, col4 = st.columns(5)
+login_bt = col2.button("<Login>")
+signin_bt = col4.button("<Sign in>")
 
 if login_bt:
     st.text("hello!")
